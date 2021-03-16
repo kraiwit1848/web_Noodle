@@ -61,7 +61,7 @@ export default (req, res) => {
             })
         }
     } catch (err) {
-        res.status(err).end();
+        res.status(err).json({});
     }
 }
 

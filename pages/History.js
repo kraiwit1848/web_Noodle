@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Axios from 'axios'
 
 class History extends Component {
@@ -62,6 +62,20 @@ class History extends Component {
                 )
             }
         }
+        const Spisy = (spisy) => {
+            if(spisy === 0){
+              return "ไม่เผ็ด"
+            }
+            else if(spisy === 2){
+              return "เผ็ด 2 เท่า"
+            }
+            else if(spisy === 3){
+              return "เผ็ด 3 เท่า"
+            }
+            else {
+              return "เผ็ดปกติ"
+            }
+          }
 
         return (
             <div >
@@ -100,7 +114,7 @@ class History extends Component {
                                         <tr key={`${data.HistoryId}`}>
                                             {/* <td>{node.HistoryId}</td> */}
                                             <td>{data.Menu}</td>
-                                            <td class="textcenter">{data.Spicy}</td>
+                                            <td class="textcenter">{Spisy(data.Spicy)}</td>
                                             <td class="textcenter">{mark(data.Vegetable)}</td>
                                             <td class="textcenter">{mark(data.Restaurant)}</td>
                                             <td class="textcenter">{data.Price}</td>

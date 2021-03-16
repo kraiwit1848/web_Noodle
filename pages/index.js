@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Axios from 'axios';
 
 class index extends Component {
@@ -69,12 +69,24 @@ class index extends Component {
       today = yyyy + '-' + dd + '-' + mm;
       return today
     }
+    const Spisy = (spisy) => {
+      if(spisy === 0){
+        return "ไม่เผ็ด"
+      }
+      else if(spisy === 2){
+        return "เผ็ด 2 เท่า"
+      }
+      else if(spisy === 3){
+        return "เผ็ด 3 เท่า"
+      }
+      else {
+        return "เผ็ดปกติ"
+      }
+    }
 
     return (
       <div class="BG">
-        {/* <p>{this.state.currentCount}</p> */}
-        <br/>
-        
+        <br/>        
         <div class="topnav">
           <a class="active" href="/"><h1> รายการอาหาร </h1> </a>
           <a href={`/History`}> <h1> ประวัติ </h1> </a>
@@ -83,7 +95,6 @@ class index extends Component {
         <div>
           <table >
             <thead>
-              {/* <td /> */}
               <tr>
                 <th>คิว</th>
                 <th>เมนู</th>
@@ -100,7 +111,7 @@ class index extends Component {
                 <tr key={`${data.MenuId}`} >
                   <td>{data.MenuId}</td>
                   <td>{data.Menu}</td>
-                  <td class="textcenter">{data.Spicy}</td>
+                  <td class="textcenter">{Spisy(data.Spicy)}</td>
                   <td class="textcenter">{mark(data.Vegetable)}</td>
                   <td class="textcenter">{mark(data.Restaurant)}</td>
                   <td class="textcenter">{data.Price}</td>
