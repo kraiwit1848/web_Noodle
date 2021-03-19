@@ -28,7 +28,7 @@ class History extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://localhost:3000/api/History'
+        Axios.get('/api/History'
         ).then(response => {
             this.setState({
                 data: response.data,
@@ -63,19 +63,19 @@ class History extends Component {
             }
         }
         const Spisy = (spisy) => {
-            if(spisy === 0){
-              return "ไม่เผ็ด"
+            if (spisy === 0) {
+                return "ไม่เผ็ด"
             }
-            else if(spisy === 2){
-              return "เผ็ด 2 เท่า"
+            else if (spisy === 2) {
+                return "เผ็ด 2 เท่า"
             }
-            else if(spisy === 3){
-              return "เผ็ด 3 เท่า"
+            else if (spisy === 3) {
+                return "เผ็ด 3 เท่า"
             }
             else {
-              return "เผ็ดปกติ"
+                return "เผ็ดปกติ"
             }
-          }
+        }
 
         return (
             <div >
@@ -84,7 +84,16 @@ class History extends Component {
 
                 <div class="topnav">
                     <a href="/"><h1> รายการอาหาร </h1> </a>
-                    <a class="active" href={`/History`}> <h1> ประวัติ </h1> </a>
+                    {/* <a class="active " href={`/History`}> <h1> ประวัติ </h1> </a> */}
+                    <div class="dropdown active" href={`/History`}>
+                        <button class="dropbtn"><h1>ประวัติ</h1>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/HistoryToDay">วันนี้</a>
+                            <a href="/HistoryALL">ทั้งหมด</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
@@ -102,15 +111,16 @@ class History extends Component {
                                 <thead>
                                     <tr>
                                         {/* <th>HistoryId</th> */}
-                                        <th>เมนู</th>
-                                        <th class="textcenter">ระดับความเผ็ด</th>
-                                        <th class="textcenter">ทานผัก</th>
-                                        <th class="textcenter">ทานที่ร้าน</th>
-                                        <th class="textcenter">ราคา</th>
+                                        <th><h2>เมนู</h2></th>
+                                        <th class="textcenter"><h2>ระดับความเผ็ด</h2></th>
+                                        <th class="textcenter"><h2>ทานผัก</h2></th>
+                                        <th class="textcenter"><h2>ทานที่ร้าน</h2></th>
+                                        <th class="textcenter"><h2>ราคา</h2></th>
                                     </tr>
                                 </thead>
-                                {node.map(data => (
-                                    <tbody>
+                                <tbody>
+
+                                    {node.map(data => (
                                         <tr key={`${data.HistoryId}`}>
                                             {/* <td>{node.HistoryId}</td> */}
                                             <td>{data.Menu}</td>
@@ -119,13 +129,13 @@ class History extends Component {
                                             <td class="textcenter">{mark(data.Restaurant)}</td>
                                             <td class="textcenter">{data.Price}</td>
                                         </tr>
-                                    </tbody>
-                                ))}
-
+                                    ))}
+                                </tbody>
+                            </table>
+                            <table class="Price">
                                 <thead>
-                                    <br />
                                     <tr class="TotalPrice">
-                                        <td> รวม </td>
+                                        <td class="textcenter"> รวม </td>
                                         <td></td>
                                         <td></td>
                                         <td></td>

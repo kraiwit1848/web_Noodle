@@ -1,12 +1,11 @@
 import { db } from '../../lib/db'
 
 export default (req, res) => {
-    // db.all(`SELECT * FROM History `, (err, rows) => {
-    //     res.status(200).send(rows);
-    // })
+    
     switch (req.method) {
         case 'POST':
-            db.all(`SELECT * FROM History `, (err, rows) => {
+            const { DateToday } = req.body
+            db.all(`SELECT * FROM History WHERE History.Date like "${DateToday}"`, (err, rows) => {
                 res.status(200).send(rows);
             })
             break

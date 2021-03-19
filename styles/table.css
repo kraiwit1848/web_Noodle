@@ -10,6 +10,18 @@ table {
 .dateTable{
   padding-left: 2%;  
 }
+thead {
+  font-size: 130%;
+  line-height: 100%;
+
+}
+
+tbody {
+  font-size: 140%;
+}
+.Button {
+  font-size: 100%;
+}
 
 th {
   text-align: left;
@@ -20,13 +32,18 @@ th {
 
 td {
   text-align: left;
-  padding: 8px;
+  padding: 20px;
 }
 .textcenter{
   text-align: center;
 }
 .TotalPrice{
-  background-color: pink
+  background-color: rgba(54, 54, 54, 0.5);
+  font-size: 140%;
+  font-weight: 600;
+}
+.Price {
+  line-height: 100%;
 }
 .bg {
   background-color: #12f538;
