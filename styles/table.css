@@ -1,6 +1,6 @@
 table {
   border-collapse: collapse;
-  border-spacing: 0;
+  border-spacing: 0 ;
   width: 97%;
   border: 2px solid rgb(128, 128, 128);
   margin-left: auto;
@@ -11,13 +11,14 @@ table {
   padding-left: 2%;  
 }
 thead {
-  font-size: 130%;
-  line-height: 100%;
+  font-size: 100%;
+  /* width: 100%; */
+  /* line-height: */
 
 }
 
 tbody {
-  font-size: 140%;
+  font-size: 130%;
 }
 .Button {
   font-size: 100%;
@@ -25,14 +26,13 @@ tbody {
 
 th {
   text-align: left;
-  padding: 8px;
+  padding: 20 px ;
   background-color: #aca9a9;
 }
 
-
 td {
   text-align: left;
-  padding: 20px;
+  padding: 25px;
 }
 .textcenter{
   text-align: center;
